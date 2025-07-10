@@ -94,11 +94,11 @@ end
 %% Funtions    
 function [datapath, GTpath] = directories(needle)
     if ispc
-        directory = "D:\Matlab codes\Discrete sensing";
+        directory = "C:\Users\jfcoe\OneDrive - Johns Hopkins\Documents\MATLAB\LGTM shape sensing";
         datapath = "D:\Distributed needles\" + needle + "\Processed data\Discrete sensing\";
         GTpath = "D:\Distributed needles\" + needle + "\Ground truths\";
     else
-        directory = "/media/jfcoeur/T7 Shield/Matlab codes/Discrete sensing";
+        directory = "C:\Users\jfcoe\OneDrive - Johns Hopkins\Documents\MATLAB\LGTM shape sensing";
         datapath = "/media/jfcoeur/T7 Shield/Distributed needles/" + needle + "/Processed data/Discrete sensing/";
         GTpath = "/media/jfcoeur/T7 Shield/Distributed needles/" + needle + "/Ground truths/";
     end
