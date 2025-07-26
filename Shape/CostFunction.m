@@ -9,7 +9,7 @@ function [cost] = CostFunction(optimvars, B, s_FBG, kappa_FBG, L, insertion_case
 kappa_model_FBG = interp1(kappa_model_s.s, kappa_model_s.kappa, s_FBG, 'linear');
 
 % Compute cost as the sum of squared differences
-diff = kappa_FBG - kappa_model_FBG;
+diff = kappa_FBG(:,1:2) - kappa_model_FBG(:,1:2);
 diff_wt = weights'.*diff;
 cost = sum(vecnorm(diff_wt, 2, 2).^2);
 

@@ -39,4 +39,7 @@ function validation(datapath, C, idx, k, ang, B, L, weights)
     small = temp(ksmall,:);
     large = temp(klarge,:);
 
+    column = [mean(temp,"all"), std(temp, 0, "all");
+        mean(small,"all"), std(small, 0, "all");
+        mean(large,"all"), std(large, 0, "all")];
 end

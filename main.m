@@ -17,10 +17,10 @@ B = stiffmatrix(d);
 L = 0.12;
 
 % Number of sensing areas and their index on the distributed needle
-N = 4; % m
-FBGidx = [10 17 24 28]; % AA positions [10 17 24 28] - 5 = [5 12 19 23]
-% N = 30; % g
-% FBGidx = 1:N; % AA positions
+% N = 4; % m
+% FBGidx = [10 17 24 28]; % AA positions [10 17 24 28] - 5 = [5 12 19 23]
+N = 30; % g
+FBGidx = 1:N; % AA positions
 
 % Calibration/Validation curvatures and orientations
 kcalib = [0.5; 1.6; 2; 2.5; 3.2; 4];
@@ -98,7 +98,7 @@ function [datapath, GTpath] = directories(needle)
         datapath = "D:\Distributed needles\" + needle + "\Processed data\Discrete sensing\";
         GTpath = "D:\Distributed needles\" + needle + "\Ground truths\";
     else
-        directory = "C:\Users\jfcoe\OneDrive - Johns Hopkins\Documents\MATLAB\LGTM shape sensing";
+        directory = "/home/jfcoeur/OneDrive/Documents/MATLAB/LGTM shape sensing";
         datapath = "/media/jfcoeur/T7 Shield/Distributed needles/" + needle + "/Processed data/Discrete sensing/";
         GTpath = "/media/jfcoeur/T7 Shield/Distributed needles/" + needle + "/Ground truths/";
     end
