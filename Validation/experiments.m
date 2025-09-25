@@ -1,8 +1,8 @@
 function [out, elapsedTime] = experiments(GTpath, filenames, fieldnames, expnames, insertion_case, filetype, FBGidx, Box2Needle_frame, datapath, C, GTidx, B, L, weights, plotnames)
 
-elapsedTime = struct("soft", [], "hard", [], "layers", [], "meat", [], "pig", []); % Ajout
+elapsedTime = struct("soft", [], "hard", [], "layers", [], "meat", [], "pig", []); 
 
-for i = 1:length(expnames) % experiments
+for i = 4 % 1:length(expnames) % experiments
 
     rmse = [];
     directory = fullfile(GTpath, expnames(i));
@@ -33,12 +33,12 @@ for i = 1:length(expnames) % experiments
     
             % Ground truths
             if filetype(i) == "*.xlsx" || filetype(i) == "*.dat"
-                index = i;
+                index = j;
             else
                 index = g;
             end
             
-            [xyzGT, r] = FBGGroundTruths(directory, filetype(i), index, 1000*r, Box2Needle_frame(:,:,ref,3));            
+            [xyzGT, r] = FBGGroundTruths(directory, filetype(i), index, 1000*r, Box2Needle_frame(:,:,ref,1));         
             xyzGT = xyzGT - xyzGT(end, :);
             r = r - r(end, :);
 
@@ -75,6 +75,15 @@ for i = 1:length(expnames) % experiments
                 r_aligned = (R * r')';
                 [rmse(g,ref), err_tip(g)] = errors(xyzGT, r_aligned);
                 g = g + 1;
+
+                % For graphical abstract
+                index = 1:size(xyzGT,1); % size(xyzGT,1)-5:size(xyzGT,1);
+                plot3(xyzGT(index,1), xyzGT(index,2), xyzGT(index,3), '--', 'LineWidth', 4, 'Color', 'k')
+                hold on 
+                plot3(r_aligned(index,1), r_aligned(index,2), r_aligned(index,3), 'LineWidth', 4, 'Color', 'b')
+                hold on
+                axis off
+
             end
         end        
 

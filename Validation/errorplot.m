@@ -3,7 +3,7 @@ function [] = errorplot(exp, rmse, x_label, tit)
 rmse_ave = mean(rmse);
 rmse_std = std(rmse);
 
-errorbar(exp, rmse_ave, rmse_std, '_', 'LineWidth', 3, 'MarkerSize', 35, 'Color', 'm')
+errorbar(exp, rmse_ave, rmse_std, '_', 'LineWidth', 3, 'MarkerSize', 35, 'Color', 'g')
 hold on
 
 xlabel(x_label, 'FontSize', 40)

@@ -1,8 +1,8 @@
 %% Clear workspace
-% clearvars; clc; close all;
+clearvars; clc; close all;
 
 % Add all MATLAB functions to path
-needle = "Hopkins 3in1";
+needle = "Hopkins";
 [datapath, GTpath] = directories(needle);
 
 
@@ -86,7 +86,9 @@ if needle == "Hopkins 3in1"
     Box2Needle_frame = repmat(Box2Needle_frame, [1, 1, 4, 4]);
     
     % Compute and plot shape errors
-    [rmse.(fieldnames), elapsedTime.(fieldnames)] = experiments(GTpath, filenames, fieldnames, expnames, insertion_case, filetype, FBGidx, Box2Needle_frame, datapath, C, GTidx, B, L, weights, plotnames);
+    [pig_rmse, pig_elapsedTime] = experiments(GTpath, filenames, fieldnames, expnames, insertion_case, filetype, FBGidx, Box2Needle_frame, datapath, C, GTidx, B, L, weights, plotnames);
+    rmse.(fieldnames) = pig_rmse.pig;
+    elapsedTime.(fieldnames) = pig_rmse.pig;
 
 end
 
